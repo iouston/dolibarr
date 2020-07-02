@@ -2208,10 +2208,10 @@ class Form
 		} elseif ($finished == 1)
 		{
 			$sql .= " AND p.finished = ".$finished;
-			if ($status >= 0)  $sql .= " AND p.tosell = ".$status;
+			if ($status >= 0)  $sql .= " AND p.tobuy=1 AND p.tosell = ".$status;
 		} elseif ($status >= 0)
 		{
-			$sql .= " AND p.tosell = ".$status;
+			$sql .= " AND p.tobuy=1 AND p.tosell = ".$status;
 		}
 		// Filter by product type
 		if (strval($filtertype) != '') $sql .= " AND p.fk_product_type = ".$filtertype;
