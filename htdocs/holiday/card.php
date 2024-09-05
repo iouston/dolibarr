@@ -1073,8 +1073,11 @@ if ((empty($id) && empty($ref)) || $action == 'create' || $action == 'add') {
 			$htmltooltip = $langs->trans("Detail").'<br>';
 			$htmltooltip .= $out;
 
-			print $form->textwithtooltip($langs->trans('SoldeCPUser', round($nb_holiday, 5)).' '.img_picto('', 'help'), $htmltooltip);
-
+			if(getDolGlobalString('HOLIDAY_SHOW_DETAIL_BALANCE')){
+				print $htmltooltip;
+			}else{
+				print $form->textwithtooltip($langs->trans('SoldeCPUser', round($nb_holiday, 5)).' '.img_picto('', 'help'), $htmltooltip);
+			}
 			print '</div>';
 			if (!empty($conf->use_javascript_ajax)) {
 				print '<script>';
